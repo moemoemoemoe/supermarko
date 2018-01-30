@@ -252,7 +252,7 @@ $.ajax({
 setTimeout(function(){
 
                 $('#modal-confirm-operator-message').modal('hide');
-                window.location.replace('http://test.arcazur.com/admin/manage_offer');
+                window.location.replace('http://supermarko.arcazur.com/admin/manage_offer');
             }, 2000);
 
                 }else
