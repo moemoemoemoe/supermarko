@@ -53,11 +53,11 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-    'my_url' => env('MY_URL', 'http://test.arcazur.com/uploads/offers/'),
-    'my_url_geenric' => env('my_url_geenric', 'http://test.arcazur.com/uploads/generic/'),
-    'my_url_items' => env('MY_URL_ITEMS', 'http://test.arcazur.com/uploads/items/'),
-    'my_url_child' => env('MY_URL_CHILDS', 'http://test.arcazur.com/uploads/items/childs/'),
-    'my_url_saver' => env('MY_URL_SAVERS', 'http://test.arcazur.com/uploads/savers/'),
+    'my_url' => env('MY_URL', 'http://supermarko.arcazur.com/uploads/offers/'),
+    'my_url_geenric' => env('my_url_geenric', 'http://supermarko.arcazur.com/uploads/generic/'),
+    'my_url_items' => env('MY_URL_ITEMS', 'http://supermarko.arcazur.com/uploads/items/'),
+    'my_url_child' => env('MY_URL_CHILDS', 'http://supermarko.arcazur.com/uploads/items/childs/'),
+    'my_url_saver' => env('MY_URL_SAVERS', 'http://supermarko.arcazur.com/uploads/savers/'),
 
 
     'my_url_items_local' => env('MY_URL_ITEMS_LOCAL', 'http://localhost/shoppingcart/public/uploads/items/'),
