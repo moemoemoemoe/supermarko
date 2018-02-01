@@ -328,6 +328,31 @@ $end_date = $r->input('end_date');
 
 
         }
+        public function delete_cart_user(Request $r)
+        {
+ $id = $r->input('id_item');
+    try
+            {
+  $carts = Cart::findOrFail($id);
+  $carts->delete();
+   $status = 1;
+ $message = 'Item Deleted';
+
+
+            }
+            catch (\Exception $e)
+            {
+ $status = -1;
+ $message = 'Somthing went Wrong';
+
+            }
+
+ return Response::json(['status' => $status, 'message' => $message]);
+
+
+
+
+        }
 
 
     }

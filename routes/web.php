@@ -118,6 +118,8 @@ Route::post('admin/invoice_adv_search', ['as' => 'invoice_adv_search', 'uses' =>
 Route::get('admin/view_cart_offer_stat', ['as' => 'view_cart_offer_stat', 'uses' => 'OffersController@view_cart_offer_stat']);
 
 Route::post('admin/update_qty', ['as' => 'update_qty', 'uses' => 'OffersController@update_qty']);
+Route::post('admin/delete_cart_user', ['as' => 'delete_cart_user', 'uses' => 'OffersController@delete_cart_user']);
+
 
 
 

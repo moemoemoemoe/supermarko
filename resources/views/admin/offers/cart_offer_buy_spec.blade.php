@@ -139,6 +139,37 @@
       </div>
     </div>
   </div>
+
+   <div class="modal fade large_bootbox" id="modal-confirm-delete-message" tabindex="-1" role="dialog" style="z-index: 999999999">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+          <h4 class="modal-title">
+
+          </h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-4" id="operator_logo">
+
+            </div>
+            <div class="col-md-9 col-sm-8 col-xs-8" id="response">
+              Are you sure you want to delete this Item!!!
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Actions -->
+        <div class="modal-footer " style="text-align: center;">
+          <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+          <button type="button" class="btn btn-danger" onclick="delete_cart()" id="confirm_btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script type="text/javascript">
     
 
@@ -150,8 +181,16 @@
           id_item = id;
           original_invoice = invoice;
           var qty = $('#qty_'+id).val();
+
+          if(qty<=0)
+          {
+ $('#modal-confirm-delete-message').modal('show');
+
+          }
        //   window.alert(qty);
 
+else
+{
 $.ajax({
             url: '{{ route('update_qty') }}',
             type: 'POST',
@@ -172,9 +211,9 @@ $.ajax({
                    window.alert(data.message)
  setTimeout(function(){
 
-                $('#modal-confirm-operator-message').modal('hide');
+               
                 window.location.replace('http://supermarko.arcazur.com/admin/view_cart_offer_spec/'+invoice);
-            }, 2000);
+            }, 1000);
 
                 }else
                 {
@@ -187,5 +226,45 @@ $.ajax({
            });
 
         }
+      }
+
+      function delete_cart()
+      {
+
+        $.ajax({
+            url: '{{ route('delete_cart_user') }}',
+            type: 'POST',
+            data:{
+                _token: '{{ csrf_token() }}',
+                id_item: id_item
+
+
+            },
+            cache: false,
+            datatype: 'JSON',
+            success: function(data){
+               
+                if(data.status == 1){
+                  $('#modal-confirm-delete-message').modal('hide');
+                 
+ setTimeout(function(){
+
+               
+                window.location.replace('http://supermarko.arcazur.com/admin/view_cart_offer_spec/'+original_invoice);
+            }, 1000);
+
+                }else
+                {
+                   window.alert(data.message)
+                }
+               },
+               error: function(){
+
+               }
+           });
+
+
+
+      }
   </script>
 @endsection
