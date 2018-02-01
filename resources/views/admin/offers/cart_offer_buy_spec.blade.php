@@ -236,7 +236,8 @@ $.ajax({
             type: 'POST',
             data:{
                 _token: '{{ csrf_token() }}',
-                id_item: id_item
+                id_item: id_item,
+                original_invoice:original_invoice
 
 
             },
@@ -274,7 +275,7 @@ setTimeout(function(){
                
                 window.location.replace('http://supermarko.arcazur.com/admin/view_cart_offer_spec/'+original_invoice);
             }, 1000);
-        
+
       }
   </script>
 @endsection

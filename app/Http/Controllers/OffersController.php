@@ -207,7 +207,7 @@ namespace App\Http\Controllers;
         public function view_cart_offer()
         {
        $carts = Order::Orderby('id','DESC')->whereDate('created_at','=',date('Y-m-d'))->with('driver')->get();
-       //return $carts;
+
        return view('admin.offers.cart_offer_buy',compact('carts'));
 
         }
@@ -223,19 +223,7 @@ $order_status = Order::where('inv_id',$invm)->get();
          
 //return $carts_sub_item;
 
-         if( count($carts_offer) == 0 && count($carts_sub_item) == 0 )
-         {
-
-            $orders = findOrFail($order_status[0]->id);
-            $orders->delete();
-            $carts =    Cart::where('original_invoice',$invm)->delete();
-
-
-return Redirect::to('http://supermarko.arcazur.com/admin/view_cart_offer');
-
-
-
-         }
+    
          if(count($carts_offer) == 0)
          {
             $total_inv =0;
@@ -345,6 +333,10 @@ $end_date = $r->input('end_date');
         public function delete_cart_user(Request $r)
         {
  $id = $r->input('id_item');
+ $invoice = $r->input('original_invoice');
+
+
+
     try
             {
   $carts = Cart::findOrFail($id);
@@ -360,6 +352,23 @@ $end_date = $r->input('end_date');
  $message = 'Somthing went Wrong';
 
             }
+
+    $carts= Cart::where('original_invoice',$invoice)->get();
+    if(count($carts) == 0)
+    {
+  $carts =   Order::where('inv_id',$invm)->delete();
+            $carts =    Cart::where('original_invoice',$invm)->delete();
+
+
+return Redirect::to('http://supermarko.arcazur.com/admin/view_cart_offer');
+
+
+
+         
+
+
+
+    }
 
  return Response::json(['status' => $status, 'message' => $message]);
 
