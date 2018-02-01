@@ -356,16 +356,11 @@ $end_date = $r->input('end_date');
     $carts= Cart::where('original_invoice',$invoice)->get();
     if(count($carts) == 0)
     {
-  $carts =   Order::where('inv_id',$invm)->delete();
-            $carts =    Cart::where('original_invoice',$invm)->delete();
+  $carts = Order::where('inv_id',$invoice)->delete();
+        $carts = Cart::where('original_invoice',$invoice)->delete();
 
 
 return Redirect::to('http://supermarko.arcazur.com/admin/view_cart_offer');
-
-
-
-         
-
 
 
     }
