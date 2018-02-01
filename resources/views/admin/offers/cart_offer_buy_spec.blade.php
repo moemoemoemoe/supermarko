@@ -254,7 +254,14 @@ $.ajax({
                 window.location.replace('http://supermarko.arcazur.com/admin/view_cart_offer_spec/'+original_invoice);
             }, 1000);
 
-                }else
+                }
+                else if(data.status == 0)
+                {
+ window.alert(data.message)
+window.location.replace('http://supermarko.arcazur.com/admin/view_cart_offer');
+                }
+
+                else
                 {
                    window.alert(data.message)
                 }

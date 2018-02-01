@@ -358,9 +358,10 @@ $end_date = $r->input('end_date');
     {
   $carts = Order::where('inv_id',$invoice)->delete();
         $carts = Cart::where('original_invoice',$invoice)->delete();
+$status = 0;
+$message = 'All is Deleted';
 
-
-return Redirect::to('http://supermarko.arcazur.com/admin/view_cart_offer');
+// return Redirect::to('http://supermarko.arcazur.com/admin/view_cart_offer');
 
 
     }
