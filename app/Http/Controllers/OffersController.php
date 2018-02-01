@@ -298,4 +298,36 @@ $end_date = $r->input('end_date');
         }
 
 
+        public function update_qty(Request $r)
+        {
+            $id = $r->input('id_item');
+            $qty = $r->input('qty');
+
+          
+
+            try
+            {
+  $carts = Cart::findOrFail($id);
+  $carts->qty = $qty;
+  $carts->save();
+   $status = 1;
+ $message = 'Qty updated';
+
+
+            }
+            catch (\Exception $e)
+            {
+ $status = -1;
+ $message = 'Somthing went Wrong';
+
+            }
+
+ return Response::json(['status' => $status, 'message' => $message]);
+
+
+
+
+        }
+
+
     }

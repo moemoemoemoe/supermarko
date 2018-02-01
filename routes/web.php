@@ -117,6 +117,9 @@ Route::post('admin/view_cart_offer_spec/{invm}', 'DriverController@view_cart_off
 Route::post('admin/invoice_adv_search', ['as' => 'invoice_adv_search', 'uses' => 'OffersController@invoice_adv_search']);
 Route::get('admin/view_cart_offer_stat', ['as' => 'view_cart_offer_stat', 'uses' => 'OffersController@view_cart_offer_stat']);
 
+Route::post('admin/update_qty', ['as' => 'update_qty', 'uses' => 'OffersController@update_qty']);
+
+
 
 
 

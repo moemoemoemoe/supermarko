@@ -61,9 +61,10 @@
        <tr border: 1px solid #ddd!important>
         <td style="height:100px;width:100px; background: url('{{asset('uploads/offers/'.$cart->offer->img_name)}}'); background-repeat: no-repeat;background-size: contain; background-position: center center;border: 1px solid #ddd!important"></td>
         <td style="width:300px;border: 1px solid #ddd!important">{{ $cart->offer->title }}</td>
-        <td style="width:200px;border: 1px solid #ddd!important">{{$cart->qty}}</td>
-        <td style="width:350px;border: 1px solid #ddd!important">{{$cart->offer->price}} L.L</td>
-        <td style="width:350px;border: 1px solid #ddd!important"><?php echo $cart->qty * $cart->offer->price;  ?> L.L</td>
+       <td style="width:200px;border: 1px solid #ddd!important"><center><input type="number" id="qty_{{$cart->id}}" value="{{$cart->qty}}" class="form-control text-center" style="width: 100px;" /></center></td>
+        <td style="width:200px;border: 1px solid #ddd!important">{{$cart->offer->price}} L.L</td>
+        <td style="width:200px;border: 1px solid #ddd!important"><?php echo $cart->qty * $cart->offer->price;  ?> L.L</td>
+         <td style="width:250px;border: 1px solid #ddd!important"><button class="btn btn-primary" onclick="update_qty({{$cart->id}},{{$cart->original_invoice}})">Update Qty</button></a></td>
   
     @endforeach
     @endif
@@ -87,9 +88,10 @@
        <tr border: 1px solid #ddd!important>
         <td style="height:100px;width:100px; background: url('{{asset('uploads/items/childs/'.$cartchild->child->img_name)}}'); background-repeat: no-repeat;background-size: contain; background-position: center center;border: 1px solid #ddd!important"></td>
         <td style="width:300px;border: 1px solid #ddd!important">{{ $cartchild->child->name_sub }}</td>
-        <td style="width:200px;border: 1px solid #ddd!important">{{$cartchild->qty}}</td>
-        <td style="width:350px;border: 1px solid #ddd!important">{{$cartchild->child->price}} L.L</td>
-        <td style="width:350px;border: 1px solid #ddd!important"><?php echo $cartchild->qty * $cartchild->child->price;  ?> L.L</td>
+        <td style="width:200px;border: 1px solid #ddd!important"><center><input type="number" id="qty_{{$cartchild->id}}" value="{{$cartchild->qty}}" class="form-control text-center" style="width: 100px;" /></center></td>
+        <td style="width:200px;border: 1px solid #ddd!important">{{$cartchild->child->price}} L.L</td>
+        <td style="width:200px;border: 1px solid #ddd!important"><?php echo $cartchild->qty * $cartchild->child->price;  ?> L.L</td>
+       <td style="width:250px;border: 1px solid #ddd!important"><button class="btn btn-primary" onclick="update_qty({{$cartchild->id}},{{$cartchild->original_invoice}})">Update Qty</button></a></td>
   
     @endforeach
   @endif
@@ -137,4 +139,53 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    
+
+     var id_item;
+      var original_invoice;   
+
+        function update_qty(id,invoice)
+        {
+          id_item = id;
+          original_invoice = invoice;
+          var qty = $('#qty_'+id).val();
+       //   window.alert(qty);
+
+$.ajax({
+            url: '{{ route('update_qty') }}',
+            type: 'POST',
+            data:{
+                _token: '{{ csrf_token() }}',
+                id_item: id_item,
+                original_invoice:original_invoice,
+                qty : qty
+
+
+
+            },
+            cache: false,
+            datatype: 'JSON',
+            success: function(data){
+               
+                if(data.status == 1){
+                   window.alert(data.message)
+ setTimeout(function(){
+
+                $('#modal-confirm-operator-message').modal('hide');
+                window.location.replace('http://supermarko.arcazur.com/admin/view_cart_offer_spec/'+invoice);
+            }, 2000);
+
+                }else
+                {
+                   window.alert(data.message)
+                }
+               },
+               error: function(){
+
+               }
+           });
+
+        }
+  </script>
 @endsection
