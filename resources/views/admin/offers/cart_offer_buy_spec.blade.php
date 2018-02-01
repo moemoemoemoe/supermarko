@@ -164,7 +164,7 @@
 
         <!-- Modal Actions -->
         <div class="modal-footer " style="text-align: center;">
-          <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancel()">cancel</button>
           <button type="button" class="btn btn-danger" onclick="delete_cart()" id="confirm_btn">Delete</button>
         </div>
       </div>
@@ -265,6 +265,16 @@ $.ajax({
 
 
 
+      }
+
+      function cancel()
+      {
+setTimeout(function(){
+
+               
+                window.location.replace('http://supermarko.arcazur.com/admin/view_cart_offer_spec/'+original_invoice);
+            }, 1000);
+        
       }
   </script>
 @endsection
