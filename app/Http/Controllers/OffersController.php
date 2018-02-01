@@ -222,6 +222,20 @@ $order_status = Order::where('inv_id',$invm)->get();
          $user_name = Cart::select('iduser','email','the_date','the_time','comment')->where('original_invoice', $invm)->limit(1)->get();
          
 //return $carts_sub_item;
+
+         if( count($carts_offer) == 0 && count($carts_sub_item) == 0 )
+         {
+
+            $orders = findOrFail($order_status[0]->id);
+            $orders->delete();
+            $carts =    Cart::where('original_invoice',$invm)->delete();
+
+
+return Redirect::to('http://supermarko.arcazur.com/admin/view_cart_offer');
+
+
+
+         }
          if(count($carts_offer) == 0)
          {
             $total_inv =0;
