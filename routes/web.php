@@ -67,10 +67,11 @@ Route::get('webview/confirm_order_delivered/{id}', 'WebviewController@confirm_or
 Route::get('webview/order_driver_api/{email}', 'WebviewController@order_driver_api')->name('order_driver_api');
 Route::get('webview/order_driver_print/{inv}', 'WebviewController@order_driver_print')->name('order_driver_print');
 
+/////////////////////shchedule api
 
 
 
-
+Route::get('api/saver/schedule', 'ScheduleSaverController@all_schedule')->name('all_schedule_saver')->middleware('auth');
 
 
 
@@ -244,4 +245,15 @@ Route::get('admin/customer/get_driver_report/{id}', 'CustomerController@get_driv
 
 
 /////////////test post
+
+
+
+///////////////////schedulecontrollersaver
+
+
+Route::get('admin/schedule/schedulesaver', 'ScheduleSaverController@schedulesaver')->name('schedulesaver')->middleware('auth');
+Route::post('admin/schedule/schedulesaver', 'ScheduleSaverController@schedulesaver_save')->name('schedulesaver')->middleware('auth');
+
+Route::get('admin/schedule/delete_schedul_view/{id}', 'ScheduleSaverController@delete_schedul_view')->name('delete_schedul_view')->middleware('auth');
+
 

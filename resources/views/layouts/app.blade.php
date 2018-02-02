@@ -33,9 +33,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+                   
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -52,6 +50,10 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
 
+
+        <li>
+                          <a href="{{route('schedulesaver')}}"> <img src="{{asset('images/timeschedule.png')}}" width="20px">Schedule  </a>
+                        </li>
 
 
                         <li class="dropdown">

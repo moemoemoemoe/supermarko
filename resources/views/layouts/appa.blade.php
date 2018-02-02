@@ -32,10 +32,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+                   
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -53,6 +50,9 @@
                         @else
 
 
+        <li>
+                          <a href="{{route('schedulesaver')}}"> <img src="{{asset('images/timeschedule.png')}}" width="20px">Schedule  </a>
+                        </li>
 
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
