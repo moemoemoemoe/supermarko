@@ -49,15 +49,15 @@
  <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading text-center" style="color: red;font-weight: 900">{{count($scheduls)}} Generic/s</div>
+                <div class="panel-heading text-center" style="color: red;font-weight: 900">{{count($generics)}} Generic/s</div>
 
                 <div class="panel-body">
                                                                                
-@foreach($scheduls as $schedul)
+@foreach($generics as $generics)
     <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading text-center">
-                <b><span style="color: #4CAF50;font-weight: 900">{{$generic->generic_name}}</span></b>
+                <b><span style="color: #4CAF50;font-weight: 900">{{$generics->generic_name}}</span></b>
             </div>
              <div class="panel-heading text-center">
                 <b><span style="color: black">{{$generic->zone->zone_name}}</span></b>
