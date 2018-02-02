@@ -57,7 +57,7 @@
     <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading text-center">
-                <b><span style="color: #4CAF50;font-weight: 900">{{$generics->generic_name}}</span></b>
+                <b><span style="color: #4CAF50;font-weight: 900">{{$generic->generic_name}}</span></b>
             </div>
              <div class="panel-heading text-center">
                 <b><span style="color: black">{{$generic->zone->zone_name}}</span></b>
