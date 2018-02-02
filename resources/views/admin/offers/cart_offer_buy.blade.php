@@ -29,7 +29,7 @@
                    @foreach($carts as $cart)
                      <div class="panel-body">
                       @if($cart->status == -99)
-                       <div class="col-md-2"> <a href="#"><span class="btn btn-danger" style="margin: 10px">{{$cart->inv_id}}</span></a></div>
+                       <div class="col-md-2"> <a href="#"><span class="btn btn-danger" style="margin: 10px">{{$cart->inv_id}} is Canceled</span></a></div>
                       @else
                   <div class="col-md-2"> <a href="{!! route('view_cart_offer_spec', ['invm'=>$cart->inv_id]) !!}"><span class="btn btn-primary" style="margin: 10px">{{$cart->inv_id}}</span></a></div>
                   @endif
