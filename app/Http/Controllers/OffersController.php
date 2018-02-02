@@ -356,7 +356,12 @@ $end_date = $r->input('end_date');
     $carts= Cart::where('original_invoice',$invoice)->get();
     if(count($carts) == 0)
     {
-  $carts = Order::where('inv_id',$invoice)->delete();
+  $carts = Order::where('inv_id',$invoice)->get();
+  $carts_spec =Order::findOrFail($carts[0]->id);
+  $carts_spec->status = -99;
+  $carts_spec->save();
+
+
         $carts = Cart::where('original_invoice',$invoice)->delete();
 $status = 0;
 $message = 'All is Deleted';
