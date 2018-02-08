@@ -211,6 +211,8 @@ namespace App\Http\Controllers;
        return view('admin.offers.cart_offer_buy',compact('carts'));
 
         }
+
+        ///////////
          public function view_cart_offer_spec($invm)
         {
 $order_status = Order::where('inv_id',$invm)->get();
@@ -266,6 +268,9 @@ $total_inv_child = $total_inv_child  + ($carts_sub_item[$i]->qty * $carts_sub_it
        return view('admin.offers.cart_offer_buy_spec',compact('carts_offer','carts_item','thetotalall','carts_sub_item','user_name','drivers','order_status'));
 
         }
+
+
+//////////////////////
         public function invoice_adv_search(Request $r)
         {
 $start_date = $r->input('start_date');
