@@ -292,8 +292,8 @@ $end_date = $r->input('end_date');
   $carts_notassigned = Order::Orderby('id','DESC')->where('status',0)->with('driver')->get();
  $carts_assigned = Order::Orderby('id','DESC')->where('status',1)->with('driver')->get();
   $carts_assigned_verified = Order::Orderby('id','DESC')->where('status',2)->with('driver')->get();
-    $carts_finish_shop = Order::Orderby('id','DESC')->where('status',4)->with('driver')->get();
-        $carts_delivered = Order::Orderby('id','DESC')->where('status',5)->with('driver')->get();
+    $carts_finish_shop = Order::Orderby('id','DESC')->where('status',3)->with('driver')->get();
+        $carts_delivered = Order::Orderby('id','DESC')->where('status',6)->with('driver')->get();
 
 
 
