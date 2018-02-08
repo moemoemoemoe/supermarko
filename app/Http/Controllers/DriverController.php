@@ -134,7 +134,16 @@ $role = $r->input('role');
 $order = Order::findOrFail($id);
 $order->driver_id = $driver_id;
 $order->role = $role;
-$order->status = 1;
+if($role == "Picker")
+{
+ $order->status = 1;
+}
+if($role == "Delivery")
+{
+ $order->status = 4;
+
+}
+
 $order->save();
 
  $driver = Driver::where('id',$driver_id)->get();

@@ -18,9 +18,24 @@
                      <span style="color: #000">Delevery date :</span> {{$user_name[0]->the_date}}
                     <span class="pull-left"> <span style="color: #000"> Time : </span>{{$user_name[0]->the_time}}</span>
                     <span class="pull-right" onClick="showComment()">Show Comment</span></div>
-@if($order_status[0]->status == 2 || $order_status[0]->status == 4 || $order_status[0]->status == 5)
+                    @if($order_status[0]->status == 1 )
  <div class="panel-heading text-center" style="font-weight: 900">
-<center><span style="color: blue;font-weight: 900">Allready Confirmed...!!</span></center></div>
+<center><span style="color: blue;font-weight: 900">This order not confirmed yet</span></center></div>
+
+@endif
+ @if($order_status[0]->status == 3 )
+ <div class="panel-heading text-center" style="font-weight: 900">
+<center><span style="color: blue;font-weight: 900">This order has finish shop from picker..please choose a delivery</span></center></div>
+@endif
+ @if($order_status[0]->status == 4 )
+ <div class="panel-heading text-center" style="font-weight: 900">
+<center><span style="color: blue;font-weight: 900">This order waiting delevery confirmation or assign it to onther</span></center></div>
+
+@endif
+@if($order_status[0]->status == 2 || $order_status[0]->status == 5  || $order_status[0]->status == 6 )
+ <div class="panel-heading text-center" style="font-weight: 900">
+<center><span style="color: blue;font-weight: 900">Allready Accepted  !!</span></center></div>
+
 @else
 
                     <div class="panel-heading text-center" style="font-weight: 900">
@@ -35,13 +50,25 @@
 
                         </select>
                     </p>
+
 <p>
                         <select class="form-control" name="role"  >
-                            <option value="Picker and Delevery">Picker and Delevery</option>
+                          @if($order_status[0]->status <=1)
+                           <!--  <option value="Picker and Delevery">Picker and Delevery</option> -->
                             <option value="Picker">Picker</option>
-                            <option value="Delevery">Delevery</option>
 
 
+                           <!--  <option value="Delevery">Delevery</option> -->
+
+                         @endif
+                          @if($order_status[0]->status == 3 || $order_status[0]->status == 4)
+                           <!--  <option value="Picker and Delevery">Picker and Delevery</option> -->
+                            <option value="Delivery">Delivery</option>
+                            
+
+                           <!--  <option value="Delevery">Delevery</option> -->
+
+                         @endif
                         </select>
                     </p>
                     <p>

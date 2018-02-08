@@ -40,13 +40,13 @@
 <span > <span style="color: #000"> comment : </span>{{$user_name[0]->comment}}</span>   
 </p> 
       <p>
-        <center>
+     <!--    <center>
     <div id="response" style="color: red"></div>
     <p>
                 <a id="send_ok" href="{!! route('finish_order', ['id'=>$invoice_number]) !!}" type="button" class="btn btn-primary" style="display: none;">Send Order</a>
 
     </p>
-    </center>
+    </center> -->
 </p>
         <p class="card-text"></span>
         </p>

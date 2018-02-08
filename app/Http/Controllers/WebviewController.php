@@ -237,12 +237,12 @@ else
     public function finish_order($id)
     {
         $order = Order::findOrFail($id);
-        $order->status = 4;
+        $order->status = 3;
         $order->save();
 $customerid =  Session::get('customer_id');
 $customers = Customer::where('id',$customerid)->get();
 $title = 'Oder On way';
-$message = 'On mY way max 20mns';
+$message = 'On mY way max 20 minutes';
 
 
          error_reporting(-1);
@@ -316,6 +316,14 @@ $message = 'On mY way max 20mns';
      * @return \Illuminate\Http\Response
      */
     public function confirm_order_delivered($id)
+    {
+          $order = Order::findOrFail($id);
+        $order->status = 6;
+        $order->save();
+       // / return Session::get('email');
+        return redirect()->route('orders', ['email' => Session::get('email')]);
+    }
+ public function accept_order_from_delivery($id)
     {
           $order = Order::findOrFail($id);
         $order->status = 5;

@@ -216,6 +216,7 @@ namespace App\Http\Controllers;
          public function view_cart_offer_spec($invm)
         {
 $order_status = Order::where('inv_id',$invm)->get();
+
     $drivers = Driver::orderBy('id','DESC')->where('status',1)->get();
     $thetotalall = 0;
        $carts_offer = Cart::with('offer')->orderBy('id','DESC')->where('original_invoice',$invm)->where('type',1)->get();
