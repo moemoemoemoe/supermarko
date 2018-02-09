@@ -93,7 +93,7 @@ Route::post('testpost/testpost', 'DriverApiController@index')->name('testpost');
 Route::get('data', 'ExcellController@data')->name('data');
 Route::get('add_to_fake_item', 'ExcellController@add_to_fake_item')->name('add_to_fake_item');
 
-
+Route::get('dataold', 'ExcellController@olddata')->name('olddata');
 
 
 //////////////////////

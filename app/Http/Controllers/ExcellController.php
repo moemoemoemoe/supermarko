@@ -17,7 +17,7 @@ class ExcellController extends Controller
      */
     public function data(Request $request)
     {
-       $path = "excell/abcd.xls";
+       $path = "excell/abcde.xls";
       // return $path;
 
  
@@ -36,14 +36,14 @@ $data = '{"data":'.$exc.'}';
 
             { 
                 $exl =  new Sub();
-                $exl->name_sub =  $mydata->item ; 
-                $exl->price =  $mydata->price ; 
-                $exl->content =  $mydata->item ; 
+                $exl->name_sub =  $mydata->item_name; 
+                $exl->price =  round($mydata->price); 
+                $exl->content =  $mydata->item_name; 
                 $exl->status =  0; 
-               
                 $exl->img_name =  $mydata->image ; 
                 $exl->image_url_original =  config('app.my_url_child').$mydata->image ; 
-                $exl->item_id = $mydata->item_id ; 
+                $exl->item_id = $mydata->item_id; 
+                $exl->vat = $mydata->has_tva;
                 $exl->save();
                 //echo $mydata->item."<hr/>";
             }
@@ -58,7 +58,7 @@ $data = '{"data":'.$exc.'}';
 
  public function olddata(Request $request)
     {
-       $path = "excell/abcd.xls";
+       $path = "excell/item.xls";
       // return $path;
 
  
@@ -77,17 +77,19 @@ $data = '{"data":'.$exc.'}';
 
             { 
                 $exl =  new Excell();
-                $exl->name =  $mydata->item ; 
+                $exl->name =  $mydata->parent; 
+                
                 $exl->brand_id =  $mydata->brand_id ; 
-                $exl->price =  $mydata->price ; 
+                $exl->price =  round($mydata->price); 
                 $exl->room_id =  $mydata->room_id ; 
                 $exl->zone_id =  $mydata->zone_id ; 
                 $exl->generic_id =  $mydata->generic_id ; 
                 $exl->image =  $mydata->image ; 
                 $exl->url =  config('app.my_url_child').$mydata->image ; 
                 $exl->item_id = $mydata->item_id ; 
-                $exl->save();
-                //echo $mydata->item."<hr/>";
+                $exl->has_tva = $mydata->has_tva;
+               $exl->save();
+               //echo $mydata->item."<hr/>";
             }
         } catch(\Exception $e){
 
@@ -107,7 +109,8 @@ $data = '{"data":'.$exc.'}';
     {
    
         
-         $exla = Excell::get();
+         $exla = Excell::orderBy('id','DESC')->get();
+       //  return $exla;
 
         for($i=0;$i<count($exla);$i++)
         {
@@ -115,7 +118,7 @@ $data = '{"data":'.$exc.'}';
             {
 
             $fake = new Item();
-            $fake->id = $exla[$i]->item_id;
+           $fake->id = $exla[$i]->item_id;
             $fake->name = $exla[$i]->name;
             $fake->content = $exla[$i]->name;
             $fake->room_id = $exla[$i]->room_id;
@@ -127,7 +130,7 @@ $data = '{"data":'.$exc.'}';
             $fake->status = 0;
             $fake->img_name = $exla[$i]->image;
             $fake->image_url_original = config('app.my_url_items').$exla[$i]->image;
-
+            $fake->vat = $exla[$i]->has_tva;
 $fake->save();
             }
             else{
@@ -150,7 +153,7 @@ $fake->save();
             $fake->status = 0;
             $fake->img_name = $exla[$i]->image;
             $fake->image_url_original = config('app.my_url_items').$exla[$i]->image;
-
+ $fake->vat = $exla[$i]->has_tva;
 $fake->save();
 }
 
