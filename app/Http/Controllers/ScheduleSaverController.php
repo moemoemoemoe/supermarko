@@ -72,7 +72,7 @@ $saver_sch->save();
      */
     public function all_schedule()
     {
-        $schedul = ScheduleSaver::orderBY('id','DESC')->get();
+        $schedul = ScheduleSaver::orderBY('id','DESC')->where('status', 1)->get();
 
         return $schedul;
     }
