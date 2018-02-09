@@ -76,7 +76,7 @@ Route::get('webview/order_driver_print/{inv}', 'WebviewController@order_driver_p
 
 
 
-Route::get('api/saver/schedule', 'ScheduleSaverController@all_schedule')->name('all_schedule_saver')->middleware('auth');
+Route::get('api/saver/schedule', 'ScheduleSaverController@all_schedule')->name('all_schedule_saver');
 
 
 
