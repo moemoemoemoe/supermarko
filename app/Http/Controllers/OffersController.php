@@ -224,7 +224,7 @@ $order_status = Order::where('inv_id',$invm)->get();
          $carts_sub_item = Cart::with('child')->orderBy('id','DESC')->where('original_invoice',$invm)->where('type',3)->get();
          $user_name = Cart::select('iduser','email','the_date','the_time','comment')->where('original_invoice', $invm)->limit(1)->get();
          
-// return $carts_sub_item;
+ return $carts_sub_item;
 
     
          if(count($carts_offer) == 0)
