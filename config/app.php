@@ -58,10 +58,12 @@ return [
     'my_url_items' => env('MY_URL_ITEMS', 'http://supermarko.arcazur.com/uploads/items/'),
     'my_url_child' => env('MY_URL_CHILDS', 'http://supermarko.arcazur.com/uploads/items/childs/'),
     'my_url_saver' => env('MY_URL_SAVERS', 'http://supermarko.arcazur.com/uploads/savers/'),
+    'my_url_fc' => env('MY_URL_FC', 'http://supermarko.arcazur.com/uploads/fixclean/'),
 
 
     'my_url_items_local' => env('MY_URL_ITEMS_LOCAL', 'http://localhost/shoppingcart/public/uploads/items/'),
     'my_url_child_local' => env('MY_URL_CHILDS_LOCAL', 'http://localhost/shoppingcart/public/uploads/items/childs/'),
+     'my_url_fc_local' => env('MY_URL_FC_LOCAL', 'http://localhost/shoppingcart/public/uploads/fixclean/'),
 
     /*
     |--------------------------------------------------------------------------

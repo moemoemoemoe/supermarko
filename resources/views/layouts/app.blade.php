@@ -51,7 +51,33 @@
                         @else
 
 
-        <li>
+                     
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                             <img src="{{asset('images/fix_icon.png')}}" width="22px">
+                            Clean and fix<span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                        <li>
+                          <a href="{{route('fc_main_categories')}}">Manage Main Categories</a>
+                        </li>
+                     <li>
+                          <a href="{{route('fc_categories')}}"> Manage  Categories</a>
+                        </li>
+                        <li>
+                          <a href="{{route('fc_childs')}}">Manage  Childs</a>
+                        </li>
+  <!--  <li>
+                          <a href=""> Invoices cart </a>
+                        </li> -->
+
+                        
+                          
+                    </ul>
+
+</li>
+                        <li>
                           <a href="{{route('schedulesaver')}}"> <img src="{{asset('images/timeschedule.png')}}" width="20px">Schedule  </a>
                         </li>
 
@@ -76,6 +102,7 @@
                         
                           
                     </ul>
+                  </li>
  <!--                </li>
  <li>
                           <a href="{{ route('view_cart_offer')}}"><img src="{{asset('images/invoices_icons.png')}}" width="25px"> Invoices cart </a>

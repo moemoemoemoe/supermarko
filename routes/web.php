@@ -261,4 +261,25 @@ Route::post('admin/schedule/schedulesaver', 'ScheduleSaverController@schedulesav
 
 Route::get('admin/schedule/delete_schedul_view/{id}', 'ScheduleSaverController@delete_schedul_view')->name('delete_schedul_view')->middleware('auth');
 
+/////////////////////////fix&clean
 
+Route::get('admin/fixclean/fc_main_categories', 'FixCleanController@main_index')->name('fc_main_categories')->middleware('auth');
+Route::post('admin/fixclean/fc_main_categories', 'FixCleanController@main_index_save')->name('fc_main_categories')->middleware('auth');
+Route::get('admin/fixclean/publish_maincat/{id}', 'FixCleanController@publish_maincat')->name('publish_maincat')->middleware('auth');
+Route::get('admin/fixclean/view_main/{id}', 'FixCleanController@view_main')->name('view_main')->middleware('auth');
+Route::post('admin/fixclean/view_main/{id}', 'FixCleanController@view_main_save')->name('view_main')->middleware('auth');
+
+
+Route::get('admin/fixclean/fc_categories', 'FixCleanController@fc_categories_index')->name('fc_categories')->middleware('auth');
+Route::post('admin/fixclean/fc_categories', 'FixCleanController@fc_categories_index_save')->name('fc_categories')->middleware('auth');
+Route::get('admin/fixclean/delete_category/{id}', 'FixCleanController@delete_category')->name('delete_category')->middleware('auth');
+Route::get('admin/fixclean/publish_cat/{id}', 'FixCleanController@publish_cat')->name('publish_cat')->middleware('auth');
+
+
+Route::get('admin/fixclean/fc_childs', 'FixCleanController@fc_childs_index')->name('fc_childs')->middleware('auth');
+Route::post('admin/fixclean/fc_childs', 'FixCleanController@fc_childs_save')->name('fc_childs')->middleware('auth');
+
+
+Route::get('admin/fixclean/child_edit_customer/{id}', 'FixCleanController@child_edit_customer')->name('child_edit_customer')->middleware('auth');
+Route::post('admin/fixclean/child_edit_customer/{id}', 'FixCleanController@child_edit_customer_save')->name('child_edit_customer')->middleware('auth');
+Route::get('admin/fixclean/publish_child_customer/{id}', 'FixCleanController@publish_child_customer')->name('publish_child_customer')->middleware('auth');

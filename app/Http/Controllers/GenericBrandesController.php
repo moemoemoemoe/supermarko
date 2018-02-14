@@ -131,7 +131,8 @@ class GenericBrandesController extends Controller
             $photo_name = str_replace(' ', '_', $foreign_name);
             $photo_name .= '.'.$photo->getClientOriginalExtension();
             $photo->move($destination, $photo_name);
-        }
+        } 
+        
         $generic = Generic::findOrFail($id);
         $generic->generic_name = $generic_name;
         $generic->zone_id = $zone_id;
