@@ -50,7 +50,7 @@
     
     
      <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-3">
             <div class="panel panel-default">
 
                 <div class="panel-heading text-center" style="color: red;font-weight: 900">{{count($childs)}} Customers</div>
