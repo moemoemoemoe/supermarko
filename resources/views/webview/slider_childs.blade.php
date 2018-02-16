@@ -95,6 +95,8 @@
 
 		<section class="section-white">
   <div class="container">
+if(count($childs) == 0)
+      	@else
 
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -106,13 +108,23 @@
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-      		@foreach($childs as $child)
+
         <div class="item active">
-          <img src="{{$child->image_url_original}}">
-        
+        	@if($childs[0]->image_url_original != "")
+          <img src="{{$childs[0]->image_url_original}}" alt="...">
+        @endif
         </div>
-        @endforeach
-      
+
+        <div class="item">
+        	@if($childs[1]->image_url_original != "")
+          <img src="{{$childs[1]->image_url_original}}" alt="...">
+          @endif
+        </div>
+          <div class="item">
+          	@if($childs[2]->image_url_original != "")
+          <img src="{{$childs[2]->image_url_original}}" alt="...">
+          @endif
+        </div>
        
       </div>
 
@@ -124,7 +136,7 @@
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
     </div>
-
+@endif
   </div>
 </section>
 
