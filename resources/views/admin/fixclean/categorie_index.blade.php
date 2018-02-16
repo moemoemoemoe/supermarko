@@ -71,9 +71,9 @@
             <div class="panel-heading text-center" style="color: red;font-weight: 900">
                 {{$categorie->cat->name}}
              </div>
-            <div class="panel-footer text-center">
+         <!--    <div class="panel-footer text-center">
                 <a href="{{route('delete_category', $categorie->id)}}" class="btn btn-danger form-control">DELETE</a>
-            </div>
+            </div> -->
         </div>
     </div>@endforeach
 

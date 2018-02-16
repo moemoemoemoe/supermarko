@@ -243,7 +243,7 @@ class FixCleanController extends Controller
     {
         $categories = Category::orderBy('id','DESC')->get();           
         $childs = CatChild::with('catsub')->orderBy('id','DESC')->get();
-
+// return $childs;
         return view('admin.fixclean.childs_index',compact('childs','categories'));
 
     }
