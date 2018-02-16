@@ -89,7 +89,7 @@
      <script src="{{ asset('js/app.js') }}"></script>
 <body>
 	
-<div class="container">
+
 	<div class="row">
 	<div class="col-md-12">
 
@@ -174,7 +174,7 @@
 
 
 </div>
-</div>
+
 
 
 
