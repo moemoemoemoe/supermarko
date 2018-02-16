@@ -40,9 +40,10 @@ class CleanFixControllerApi extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function main_childs($id)
     {
-        //
+        $main = CatChild::orderBy('id','DESC')->where('cat_id',$id)->where('status',1)->get();
+        return $main;
     }
 
     /**

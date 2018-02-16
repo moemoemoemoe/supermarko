@@ -17,6 +17,9 @@ Route::get('api/cleanfix/api/main_cat', 'CleanFixControllerApi@main_cat')->name(
 
 Route::get('api/cleanfix/api/main_second/{id}', 'CleanFixControllerApi@main_second')->name('main_second');
 
+Route::get('api/cleanfix/api/main_childs/{id}', 'CleanFixControllerApi@main_childs')->name('main_childs');
+
+
 
 
 
