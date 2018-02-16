@@ -10,6 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//////////////cleanfixapi
+
+Route::get('api/cleanfix/api/main_cat', 'CleanFixControllerApi@main_cat')->name('main_cat');
+
+
+
+
+
+
+
+
+
+
+
+
 /////////////////////////// Api Controller //////////////////////
 Route::get('api/get_last_invoice/{email}', 'ApiController@get_last_invoice')->name('get_last_invoice');
 Route::get('api/get_offers/{sty}', 'ApiController@get_offers')->name('get_offers');
