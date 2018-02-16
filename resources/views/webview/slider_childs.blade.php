@@ -57,7 +57,7 @@
 /* ------------------- Section Styling - Not needed for carousel styling ------------------- */
 
 .section-white {
-   padding: 5px 0;
+   padding: 10px 0;
 }
 
 .section-white {
@@ -76,7 +76,7 @@
 @media screen and (min-width: 992px) {
 
   .container {
-    max-width: 100% !important;
+ width: 1000px;
   }
 
 }
