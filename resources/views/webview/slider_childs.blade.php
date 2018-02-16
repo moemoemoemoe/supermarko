@@ -101,9 +101,16 @@
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
+      	 @if(count($childs) == 1)
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        @elseif(count($childs) == 2)
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        @else
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        @endif
       </ol>
 
       <!-- Wrapper for slides -->
