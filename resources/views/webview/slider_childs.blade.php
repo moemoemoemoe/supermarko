@@ -14,8 +14,8 @@
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  width: 100%;
-  height: auto;
+  width: 950px;
+  height: 540px;
 }
 
 /* ------------------- Carousel Styling ------------------- */
