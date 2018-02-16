@@ -167,6 +167,12 @@
 
 	</div>
 </div>
+<div class="row">
+	
+	{!!$description->content!!}
+
+
+</div>
 </div>
 
 
