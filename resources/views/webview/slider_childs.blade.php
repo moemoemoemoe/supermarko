@@ -68,7 +68,7 @@
 @media screen and (min-width: 768px) {
 
   .section-white {
-     padding: 0.1em 0;
+     padding: 1.5em 0;
   }
 
 }
@@ -76,7 +76,7 @@
 @media screen and (min-width: 992px) {
 
   .container {
- width: 1000px;
+    max-width: 930px;
   }
 
 }
