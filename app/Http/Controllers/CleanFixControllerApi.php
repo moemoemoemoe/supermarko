@@ -28,9 +28,10 @@ class CleanFixControllerApi extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function main_second($id)
     {
-        //
+        $main = Category::orderBy('id','DESC')->where('main_id',$id)->where('status',1)->get();
+        return $main;
     }
 
     /**
