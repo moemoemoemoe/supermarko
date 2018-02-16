@@ -119,36 +119,36 @@
 
         <div class="item active">
       
-          <img src="{{$childs[0]->image_url_original}}" alt="...">
+          <img src="{{$childs[0]->image_url_original}}" alt="..." width="950" height="540">
      
         </div>
         @elseif(count($childs) == 2)
     <div class="item active">
       
-          <img src="{{$childs[0]->image_url_original}}" alt="...">
+          <img src="{{$childs[0]->image_url_original}}" alt="..." width="950" height="540">
      
         </div>
 
         <div class="item">
         
-          <img src="{{$childs[1]->image_url_original}}" alt="...">
+          <img src="{{$childs[1]->image_url_original}}" alt="..." width="950" height="540">
          
         </div>
         @else
         <div class="item active">
       
-          <img src="{{$childs[0]->image_url_original}}" alt="...">
+          <img src="{{$childs[0]->image_url_original}}" alt="..." width="950" height="540">
      
         </div>
 
         <div class="item">
         
-          <img src="{{$childs[1]->image_url_original}}" alt="...">
+          <img src="{{$childs[1]->image_url_original}}" alt="..." width="950" height="540">
          
         </div>
           <div class="item">
           	
-          <img src="{{$childs[2]->image_url_original}}" alt="...">
+          <img src="{{$childs[2]->image_url_original}}" alt="..." width="950" height="540">
          
         </div>
        
