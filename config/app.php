@@ -59,7 +59,7 @@ return [
     'my_url_child' => env('MY_URL_CHILDS', 'http://supermarko.arcazur.com/uploads/items/childs/'),
     'my_url_saver' => env('MY_URL_SAVERS', 'http://supermarko.arcazur.com/uploads/savers/'),
     'my_url_fc' => env('MY_URL_FC', 'http://supermarko.arcazur.com/uploads/fixclean/'),
- 'my_url_fc_childs' => env('MY_URL_FC_CHILDS', 'http://supermarko.arcazur.com/uploads/childs_images/'),
+    'my_url_fc_childs' => env('MY_URL_FC_CHILDS', 'http://supermarko.arcazur.com/uploads/childs_images/'),
 
 
     'my_url_items_local' => env('MY_URL_ITEMS_LOCAL', 'http://localhost/shoppingcart/public/uploads/items/'),
