@@ -169,7 +169,7 @@
 </div>
 <div class="row">
 	
-	{!!$description->content!!}
+	{!!$description[0]->content!!}
 
 
 </div>

@@ -56,7 +56,7 @@ class CleanFixControllerApi extends Controller
     {
         $description = CatChild::where('id',$id)->get();
         $childs = ChildImage::orderBy('id','DESC')->where('child_id',$id)->where('status',1)->limit(3)->get();
-        return view('webview.slider_childs',compact('childs'));
+        return view('webview.slider_childs',compact('childs','description'));
     }
 
     /**
