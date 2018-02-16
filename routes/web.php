@@ -283,3 +283,15 @@ Route::post('admin/fixclean/fc_childs', 'FixCleanController@fc_childs_save')->na
 Route::get('admin/fixclean/child_edit_customer/{id}', 'FixCleanController@child_edit_customer')->name('child_edit_customer')->middleware('auth');
 Route::post('admin/fixclean/child_edit_customer/{id}', 'FixCleanController@child_edit_customer_save')->name('child_edit_customer')->middleware('auth');
 Route::get('admin/fixclean/publish_child_customer/{id}', 'FixCleanController@publish_child_customer')->name('publish_child_customer')->middleware('auth');
+
+Route::get('admin/fixclean/child_add_images/{id}', 'FixCleanController@child_add_images')->name('child_add_images')->middleware('auth');
+Route::post('admin/fixclean/child_add_images/{id}', 'FixCleanController@child_add_images_save')->name('child_add_images')->middleware('auth');
+
+Route::get('admin/fixclean/publish_images_childs/{id}', 'FixCleanController@publish_images_childs')->name('publish_images_childs')->middleware('auth');
+Route::get('admin/fixclean/delete_images_childs/{id}', 'FixCleanController@delete_images_childs')->name('delete_images_childs')->middleware('auth');
+
+
+
+
+
+

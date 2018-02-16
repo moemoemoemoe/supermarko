@@ -78,7 +78,7 @@
                 <a href="{{route('child_edit_customer', $child->id)}}" class="btn btn-primary form-control">More...</a>
             </div>
             <div class="panel-footer text-center">
-                <a href="#" class="btn btn-primary form-control" style="background-color: green">Images</a>
+                <a href="{{route('child_add_images', $child->id)}}" class="btn btn-primary form-control" style="background-color: green">Images</a>
             </div>
         </div>
     </div>@endforeach

@@ -9,6 +9,7 @@ use Validator;
 use paginate;
 use App\Category;
 use App\CatChild;
+use App\ChildImage;
 
 
 class FixCleanController extends Controller
@@ -351,4 +352,81 @@ class FixCleanController extends Controller
       return Redirect::Back()->with('success', 'This  Child is Unpublished');
     }
 }
+
+ public function child_add_images($id)
+    {
+        $images = ChildImage::orderBy('id','DESC')->where('child_id',$id)->get();
+
+
+        return view('admin.fixclean.save_images_childs',compact('images'));
+
+}
+
+ public function child_add_images_save(Request $r,$id)
+    {
+         $files = $r->file('attachments');
+            $data = ['attachments' => $files];
+
+      $rules = ['attachments'=> 'required'];
+
+      $v = Validator::make($data, $rules);
+
+      if($v->fails()){
+        return Redirect::Back()->withErrors($v);
+      }else
+      {
+
+        if ($files[0] != '') {
+        $image_name = array();
+        foreach($files as $file) {
+         $ran = mt_rand(111111,999999);
+         $destinationPath = 'uploads/childs_images';
+         $filename = $file->getClientOriginalExtension();
+         $filename_r =$ran.'.'.$filename;
+         $image_name[] = $filename_r;
+         $file->move($destinationPath, $filename_r);
+       }
+     }
+
+ for($i=0;$i<count($image_name);$i++){
+      $gallery = new ChildImage();
+      $gallery->child_id= $id;
+      $gallery->img_name = $image_name[$i];
+        $gallery->image_url_original =config('app.my_url_fc_childs_local').$image_name[$i];
+        $gallery->status= 0;
+
+      $gallery->save();
+    }
+
+    return Redirect::back()->with('success', 'New Images successfuly created');
+
+      }
+
+}
+ public function publish_images_childs($id)
+    {
+
+     $image = ChildImage::findOrFail($id);
+     if($image->status == '0')
+     {
+       $image->status = '1';
+       $image->save();
+       return Redirect::Back()->with('success', 'This  Image is Published');
+     }
+     else{
+      $image->status = '0';
+      $image->save();
+      return Redirect::Back()->with('success', 'This  Image is Unpublished');
+    }
+}
+
+ public function delete_images_childs($id)
+    {
+
+           $image = ChildImage::findOrFail($id);
+            $image->delete();
+             unlink('uploads/childs_images/'.$image->img_name);
+            return Redirect::Back()->with('success', 'This  Image is  Successfully Deleted');
+    }
+
 }
