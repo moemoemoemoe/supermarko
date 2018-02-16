@@ -95,8 +95,8 @@
 
 		<section class="section-white">
   <div class="container">
-if(count($childs) == 0)
-      	@else
+if(count($childs) != 0)
+      	
 
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
