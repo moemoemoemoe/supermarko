@@ -52,9 +52,10 @@ class CleanFixControllerApi extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function webviewchilds($id)
     {
-        //
+        $childs = ChildImage::orderBy('id','DESC')->where('child_id',$id)->where('status',1)->limit(3)->get();
+        return view('webview.slider_childs',compact('childs'));
     }
 
     /**

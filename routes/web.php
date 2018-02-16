@@ -23,6 +23,7 @@ Route::get('api/cleanfix/api/main_childs/{id}', 'CleanFixControllerApi@main_chil
 
 
 
+Route::get('api/cleanfix/api/webviewchilds/{id}', 'CleanFixControllerApi@webviewchilds')->name('webviewchilds');
 
 
 
