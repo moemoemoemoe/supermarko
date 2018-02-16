@@ -108,14 +108,14 @@
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-  @if(count($childs == 1))
+  @if(count($childs) == 1)
 
         <div class="item active">
       
           <img src="{{$childs[0]->image_url_original}}" alt="...">
      
         </div>
-        @elseif(count($childs == 2))
+        @elseif(count($childs) == 2)
     <div class="item active">
       
           <img src="{{$childs[0]->image_url_original}}" alt="...">
