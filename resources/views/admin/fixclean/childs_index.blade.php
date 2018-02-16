@@ -50,7 +50,7 @@
     
     
      <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12">
             <div class="panel panel-default">
 
                 <div class="panel-heading text-center" style="color: red;font-weight: 900">{{count($childs)}} Customers</div>
@@ -83,7 +83,8 @@
                 <a href="{{route('child_add_images', $child->id)}}" class="btn btn-primary form-control" style="background-color: green">Images</a>
             </div>
         </div>
-    </div>@endforeach
+   @endforeach
+    </div>
 
                 </div>
   
