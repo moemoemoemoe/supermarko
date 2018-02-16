@@ -94,7 +94,7 @@
 	<div class="col-md-12">
 
 		<section class="section-white">
-  <div class="container">
+ 
 @if(count($childs) == 0)
       	@else
 
@@ -162,14 +162,15 @@
       </a>
     </div>
 @endif
-  </div>
+  
 </section>
 
 	</div>
 </div>
 <div class="row">
+	<div class="col-md-12">
 	
-	{!!$description[0]->content!!}
+	{!!$description[0]->content!!}</div>
 
 
 </div>
