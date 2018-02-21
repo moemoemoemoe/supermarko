@@ -77,10 +77,7 @@
                     </ul>
 
 </li>
-                        <li>
-                          <a href="{{route('schedulesaver')}}"> <img src="{{asset('images/timeschedule.png')}}" width="20px">Schedule  </a>
-                        </li>
-
+                       
 
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -144,6 +141,9 @@
                         </li>
     <li>
                           <a href="{{ route('saver_index')}}"> Manage Screen Saver </a>
+                        </li>
+ <li>
+                          <a href="{{route('schedulesaver')}}"> <img src="{{asset('images/timeschedule.png')}}" width="20px">Schedule  </a>
                         </li>
 
                         
