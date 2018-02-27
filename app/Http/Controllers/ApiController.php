@@ -204,4 +204,12 @@ $order = Order::where('customer_id',$customer[0]->id)->whereDate('created_at','=
 return $order;
         
     }
+
+
+    public function save_tracking($email,$lat,$long,$adress)
+    {
+
+
+        
+    }
 }
