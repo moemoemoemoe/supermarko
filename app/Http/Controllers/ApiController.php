@@ -169,6 +169,17 @@ try {
         return $search;
     }
 
+      public function search_keyword($keyword)
+    {
+
+        $search =Sub::where("name_sub","LIKE","%$keyword%")->get();
+        return $search;
+    }
+
+
+
+
+
     public function download($filename)
     {
         // Check if file exists in app/storage/file folder

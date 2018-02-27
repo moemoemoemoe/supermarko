@@ -31,6 +31,10 @@ Route::get('api/cleanfix/api/webviewchilds/{id}', 'CleanFixControllerApi@webview
 
 
 /////////////////////////// Api Controller //////////////////////
+
+Route::get('api/search_keyword/{keyword}', 'ApiController@search_keyword')->name('search_keyword');
+
+
 Route::get('api/get_last_invoice/{email}', 'ApiController@get_last_invoice')->name('get_last_invoice');
 Route::get('api/get_offers/{sty}', 'ApiController@get_offers')->name('get_offers');
 Route::get('api/get_offers_all/{sty}', 'ApiController@get_offers_all')->name('get_offers_all');
