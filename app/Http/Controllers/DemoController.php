@@ -102,8 +102,23 @@ return $items;
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function add_brande_to_subs()
     {
-        //
-    }
+        $items = Array("Leusieur","Lebanon","Nestle","Kreem","Maxims","WadiAkhdar","Gandour");
+
+        $subs =Sub::OrderBy('id','DESC')->get();
+        for($i=0;$i<count($subs);$i++)
+        {
+            $up = Sub::findOrFail($subs[$i]->id);
+            $up->brande = $items[array_rand($items)];
+            $up->save();
+
+
+
+
+        }
+
+
+
+            }
 }

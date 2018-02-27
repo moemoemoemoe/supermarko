@@ -26,6 +26,9 @@ Route::get('api/cleanfix/api/main_childs/{id}', 'CleanFixControllerApi@main_chil
 Route::get('api/cleanfix/api/webviewchilds/{id}', 'CleanFixControllerApi@webviewchilds')->name('webviewchilds');
 
 
+//////////////////////////
+
+Route::get('api/add_brande_to_subs', 'DemoController@add_brande_to_subs')->name('add_brande_to_subs');
 
 
 
