@@ -7,7 +7,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-heading">Map: <span style="color: red;font-weight: 900">{!!Session('d_email')!!}</span>
-                <span class="pull-right" style="color: green;font-weight: 900"><a href="{{route('view_map_target')}}">Target</a></span></div>
+                
 
                 <div class="panel-body">
                    <script src="http://maps.google.com/maps?file=api&v=2&sensor=true&key=AIzaSyBOh3pemK7ByRPf2Ez5xX1vXUTt6DsI8ko" type="text/javascript"></script>
@@ -27,7 +27,7 @@
       map.setUIToDefault(); // Default user interface
 
       // Get course
-      GDownloadUrl("http://localhost/supermarko/public/gps/create_xml", function(data) {
+      GDownloadUrl("http://localhost/supermarko/public/gps/driver_target", function(data) {
         var xml = GXml.parse(data);
         var markers = xml.documentElement.getElementsByTagName("marker");
         var points = new Array(0); // For polyline
@@ -46,11 +46,11 @@
         var polyline = new GPolyline(points, "#ff0000", 2);
         map.addOverlay(polyline);
         // Set map centre (to last point), zoom level
-        map.setCenter(point, 25);
+        map.setCenter(point, 16);
         // InfoWindow HTML (last marker)
         var html = "";
         html += "<div id=\"infobox\">";
-        html += datetime;
+      
         html += "<br />";
         html += info;
         html += "<br /><br />";
@@ -66,7 +66,7 @@
     var marker = new GMarker(point);
     var html = "";
     html += "<div id=\"infobox\">";
-    html += datetime;
+   
     html += "<br />";
     html += info;
     html += "<br /><br />";

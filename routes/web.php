@@ -38,7 +38,10 @@ Route::get('gps/create_xml/', 'GpsController@create_xml')->name('create_xml');
 
 Route::get('gps/view_map/{email}', 'GpsController@view_map')->name('view_map');
 
+Route::get('gps/driver_target', 'GpsController@driver_target')->name('driver_target');
 
+
+Route::get('gps/view_map_target', 'GpsController@view_map_target')->name('view_map_target');
 
 
 
