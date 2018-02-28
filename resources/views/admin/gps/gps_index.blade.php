@@ -26,7 +26,7 @@
       map.setUIToDefault(); // Default user interface
 
       // Get course
-      GDownloadUrl("http://localhost/supermarko/public/gps/create_xml", function(data) {
+      GDownloadUrl("http://supermarko.arcazur.com/gps/create_xml", function(data) {
         var xml = GXml.parse(data);
         var markers = xml.documentElement.getElementsByTagName("marker");
         var points = new Array(0); // For polyline

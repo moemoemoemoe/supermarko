@@ -26,7 +26,7 @@
       map.setUIToDefault(); // Default user interface
 
       // Get course
-      GDownloadUrl("http://localhost/supermarko/public/gps/driver_target", function(data) {
+      GDownloadUrl("http://supermarko.arcazur.com/gps/driver_target", function(data) {
         var xml = GXml.parse(data);
         var markers = xml.documentElement.getElementsByTagName("marker");
         var points = new Array(0); // For polyline
