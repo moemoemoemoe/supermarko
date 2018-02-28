@@ -21,7 +21,7 @@
 
       // Get map (Version 2)
       var map = new GMap2(document.getElementById("map"));
-      // map.setMapType(G_HYBRID_MAP)
+      // map.setMapType(G_HYBRID_MAP
  
       map.setUIToDefault(); // Default user interface
 
