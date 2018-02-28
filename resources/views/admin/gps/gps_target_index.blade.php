@@ -30,10 +30,7 @@
         var xml = GXml.parse(data);
         var markers = xml.documentElement.getElementsByTagName("marker");
         var points = new Array(0); // For polyline
-        if(markers.length == 0){
-
-        	window.alert('no result found, maybe no orders or no driver markers yet');
-        }
+      
         // Loop through the markers
         for (var i = 0; i < markers.length; i++) {
           var datetime = markers[i].getAttribute("datetime");
