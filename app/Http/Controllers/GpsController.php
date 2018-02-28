@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gpi;
+use Session;
 class GpsController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class GpsController extends Controller
      */
      public function save_tracking($email,$lat,$long,$adress)
     {
-        
+
 $gpis = new Gpi();
 $gpis->email  = $email;
 $gpis->lat  = $lat;
@@ -36,9 +37,47 @@ try {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create_xml()
     {
-        //
+        $email = Session::get('d_email');
+
+        $data = Gpi::select('lat','long','adress','created_at')->orderBy('id','DESC')->where('email',$email)->whereDate('created_at','=', date('Y-m-d'))->get();
+  //    header("Content-type: text/xml");
+  //    echo "<markers>\n";
+
+  // // Iterate through the rows, printing XML nodes for each
+ // for($i=0;$i<count($data);$i++){
+  //   // ADD TO XML DOCUMENT NODE
+  //   echo '<marker ';
+  //   echo 'lat="' . $data[$i]->lat . '" ';
+  //   echo 'lng="' . $data[$i]->long . '" ';
+  //    echo 'adress="' . $data[$i]->adress . '" ';
+  //   echo 'datetime="' . $data[$i]->created_at . '" ';
+  //   echo "/>\n";
+  // }
+
+  // // End XML file
+  // echo '</markers>';
+         $xml = new \XMLWriter();
+    $xml->openMemory();
+    $xml->startDocument();
+    $xml->startElement('markers');
+    foreach($data as $user) {
+        $xml->startElement('marker');
+        $xml->writeAttribute('lat', $user->lat);
+        $xml->writeAttribute('lng', $user->long);
+        $xml->writeAttribute('adress', $user->adress);
+        $xml->writeAttribute('datetime', $user->created_at);
+        $xml->endElement();
+    }
+    $xml->endElement();
+    $xml->endDocument();
+
+    $content = $xml->outputMemory();
+    $xml = null;
+
+    return response($content)->header('Content-Type', 'text/xml');
+        
     }
 
     /**
@@ -47,9 +86,10 @@ try {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function view_map($email)
     {
-        //
+Session::put('d_email',$email);
+        return view('admin.gps.gps_index');
     }
 
     /**
@@ -60,7 +100,7 @@ try {
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

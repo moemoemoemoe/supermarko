@@ -34,6 +34,11 @@ Route::get('api/add_brande_to_subs', 'DemoController@add_brande_to_subs')->name(
 //////////////////////gps tracking
 
 Route::get('gps/gps_save/{email}/{lat}/{long}/{adress}', 'GpsController@save_tracking')->name('gps_save');
+Route::get('gps/create_xml/', 'GpsController@create_xml')->name('create_xml');
+
+Route::get('gps/view_map/{email}', 'GpsController@view_map')->name('view_map');
+
+
 
 
 

@@ -206,10 +206,5 @@ return $order;
     }
 
 
-    public function save_tracking($email,$lat,$long,$adress)
-    {
-
-
-        
-    }
+ 
 }

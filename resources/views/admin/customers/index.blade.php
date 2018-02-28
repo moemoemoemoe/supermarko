@@ -15,7 +15,7 @@
     @foreach($drivers as $driver)
     <div class="list-group-item text-center">
     	<span style="color: red;font-weight: 900" class="pull-left" ><a href="{{route('get_driver_report', $driver->id)}}">{{$driver->name}}</a></span>
-    	<span class="pull-center" style="text-align: center!important">{{$driver->email}}</span>
+    	<span class="pull-center" style="text-align: center!important"><a href="{{route('view_map', $driver->email)}}">{{$driver->email}}</a></span>
     	<span class="pull-right">{{$driver->mobile}}</span>
 
  @if($driver->status == 1)
