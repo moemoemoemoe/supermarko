@@ -63,6 +63,8 @@ Route::get('api/single_search/{id}', 'ApiController@single_search')->name('singl
 Route::get('api/logs', 'ApiController@logs')->name('logs');
 
 Route::get('api/get_subs/', 'ApiController@get_subs')->name('get_subs');
+Route::get('api/get_subs_twenty/', 'ApiController@get_subs_twenty')->name('get_subs_twenty');
+
 
 
 

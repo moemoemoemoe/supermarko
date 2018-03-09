@@ -163,6 +163,14 @@ try {
         $subs = Sub::OrderBy('id','DESC')->get();
         return $subs;
     }
+
+      public function get_subs_twenty()
+    {
+
+
+        $subs = Sub::OrderBy('id','DESC')->limit(20)->get();
+        return $subs;
+    }
      public function single_search($id)
     {
         $search =Sub::where('id',$id)->get();
